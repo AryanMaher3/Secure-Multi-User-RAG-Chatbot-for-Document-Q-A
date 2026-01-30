@@ -1,0 +1,47 @@
+📝 High-Fidelity Prompt for GPT-5 (RAG Chatbot Builder)
+ROLE: Act as a Senior AI Architect and Python Developer specializing in LangChain, Streamlit, and RAG pipelines. Your task is to generate the complete, production-ready Python code for a single-file Streamlit application (rag_chatbot.py) based on the following detailed requirements.
+
+1. Core Technology Stack & Configuration
+Orchestration Framework: LangChain (using modern LCEL and langgraph if necessary for robust state management).
+
+Front-end: Streamlit (for a clean, professional, and responsive user interface).
+
+Generation LLM: Gemini 2.5 Flash (via the Google GenAI API).
+
+Embedding Model: Gemini 2.5 Flash (via the Google GenAI API).
+
+Vector Database: Pinecone (Serverless or standard index, with the index name passed via environment variables).
+
+2. User Security and Document Isolation (CRITICAL)
+Authentication: Implement a basic, local sign-up/login system. Credentials (username/hashed password) must be saved in a local file (e.g., users.json). The application must enforce separation: no functionality beyond the login screen is accessible until a user is logged in.
+
+Data Partitioning: To ensure strict document isolation, the user_id (or username) must be added as metadata to every document chunk uploaded to Pinecone. The retriever must always apply a Pinecone metadata_filter using the current user's ID to restrict search results exclusively to their own documents.
+
+3. Application Flow and Streamlit State
+The application must manage state using st.session_state to control the three-stage flow:
+
+Authentication View: Display sign-up/login forms.
+
+Document Management View: Allow the logged-in user to upload a PDF file (st.file_uploader).
+
+Chat Interface View: Display the main chat window for Q&A.
+
+4. RAG Pipeline Requirements
+Ingestion: The pipeline must handle PDF upload, use PyPDFLoader, employ a RecursiveCharacterTextSplitter (suggest optimal chunk_size and chunk_overlap for RAG), generate embeddings with Gemini 2.5 Flash, and upsert the chunks to Pinecone with the required user metadata.
+
+Conversational Memory: Implement ConversationBufferWindowMemory within the RAG chain to maintain the context of the last few turns of the conversation.
+
+Prompting Strategy: Inject a detailed system prompt into the chain that clearly instructs Gemini 2.5 Flash to:
+
+Answer the question only based on the retrieved context (zero hallucination tolerance).
+
+If the answer is not found in the documents, respond with a polite and clear statement like: "I apologize, but I could not find that specific information in your uploaded documents."
+
+User Experience (UX): Implement token streaming for the chat responses to ensure a smooth, low-latency user experience.
+
+5. Final Code Structure
+Provide a single, runnable Python file (rag_chatbot.py).
+
+Include clear sections for environment setup, authentication functions, the Pinecone/LangChain wrapper class, and the Streamlit UI logic.
+
+START CODE GENERATION NOW.
