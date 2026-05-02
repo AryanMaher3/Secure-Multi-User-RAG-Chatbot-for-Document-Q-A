@@ -2,14 +2,15 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
+# Install dependencies
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install  --no-cache-dir -r requirements.txt
-
+# Copy source code
 COPY . .
 
-EXPOSE 8051
+# Expose FastAPI port
+EXPOSE 8000
 
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health || exit 1
-
-CMD ["streamlit", "run", "rag_chatbot.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Start FastAPI server
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
