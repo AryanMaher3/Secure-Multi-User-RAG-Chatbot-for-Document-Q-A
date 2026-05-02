@@ -1,0 +1,14 @@
+# Security
+.env
+
+# Python junk
+__pycache__
+*.pyc
+venv/
+.venv/
+Pipfile
+Pipfile.lock
+
+# System
+.DS_Store
+.git

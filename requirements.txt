@@ -9,3 +9,6 @@ pypdf
 pydantic==2.12.5
 requests==2.32.5
 tenacity==9.1.2
+fastapi
+uvicorn
+python-multipart
