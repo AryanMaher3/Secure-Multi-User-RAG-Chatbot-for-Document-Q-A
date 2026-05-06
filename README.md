@@ -1,4 +1,4 @@
-# Secure Multi-User RAG Chatbot for Document Q&A
+# RAGMate
 
 A production-ready, secure Retrieval-Augmented Generation (RAG) application built with **React (Vite)**, **FastAPI**, **LangChain**, and **Google Gemini**. This chatbot allows multiple users to create private accounts, upload PDF documents, and perform Q&A with conversational memory, ensuring strict data isolation between users.
 

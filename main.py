@@ -44,7 +44,7 @@ EMBEDDING_MODEL = os.getenv(
 
 USERS_FILE = "users.json"
 
-app = FastAPI(title="Secure RAG Chatbot API")
+app = FastAPI(title="RAGMate API")
 
 # Setup CORS for frontend
 app.add_middleware(

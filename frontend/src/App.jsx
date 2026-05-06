@@ -181,7 +181,7 @@ function App() {
         <div className="chat-header">
           <div>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ color: 'var(--primary)' }}>🧠</span> Neural Chat
+              <span style={{ color: 'var(--primary)' }}>🧠</span> RAGMate
             </h3>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Memory: {Math.floor(messages.length / 2)} exchanges</span>
           </div>
